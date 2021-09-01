@@ -40,7 +40,7 @@ class User < ApplicationRecord
     created_at.to_i % 100_000 + id + (submissions.first&.id || 0)
   end
 
-  def anonymous
+  def self.anonymous
     User.find_or_create_by(gravity_user_id: 'anonymous')
   end
 end
